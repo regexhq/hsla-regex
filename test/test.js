@@ -11,8 +11,8 @@ var hslaStrings = [
 var inexactHslaStrings = [
   'hsla(,,,)',
   'hsla(12,,,)',
-  'hsla(1, 1.111%, 1.1111%, 1%) ',
-  '   hSl(1, 1.111%, 1.1111%)',
+  'hsla(1, 1.111%, 1.1111%, 1%, .123) ',
+  '   hSla(1, 1.111%, 1.1111%, 1)',
   'hsl(1, .111%, .1111%)'
 ];
 
@@ -45,7 +45,7 @@ describe('hsla-regex', function() {
     it('should not match non hsla strings', function() {
       assert.deepEqual(
         inexactHslaStrings.join('foobar').match(hslaRegex()),
-        ['hsla(1, 1.111%, 1.1111%)', 'hSl(1, 1.111%, 1.1111%)']
+        ['hsla(1, 1.111%, 1.1111%, .123)', 'hSla(1, 1.111%, 1.1111%, 1)']
       );
     });
   });
